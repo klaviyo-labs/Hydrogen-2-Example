@@ -1,5 +1,6 @@
 import {useNonce} from '@shopify/hydrogen';
 import {defer} from '@shopify/remix-oxygen';
+import {Script} from '@shopify/hydrogen';
 import {
   Links,
   Meta,

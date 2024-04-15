@@ -1,5 +1,6 @@
 export function trackViewedProduct(product) {
     let klaviyo = window.klaviyo || [];
+    console.log(product.selectedVariant)
     let item = {
         Name: product.title,
         ProductID: product.id.substring(product.id.lastIndexOf('/') + 1),
@@ -10,7 +11,7 @@ export function trackViewedProduct(product) {
         Metadata: {
           Brand: product.vendor,
           Price: product.selectedVariant.unitPrice,
-          CompareAtPrice: payload.selectedVariant.compareAtPriceV2.amount,
+          CompareAtPrice: product.selectedVariant.compareAtPrice
         }
 };
 klaviyo.push(['track', 'Hydrogen Viewed Product', item]);

@@ -9,8 +9,6 @@ import {createContentSecurityPolicy} from '@shopify/hydrogen';
  * @param {Headers} responseHeaders
  * @param {EntryContext} remixContext
  */
-
-// Not an example of best practice for CSP, this should be configured to your preference
 export default async function handleRequest(
   request,
   responseStatusCode,
@@ -31,6 +29,21 @@ export default async function handleRequest(
       "*"
     ]
   });
+
+  const body = await renderToReadableStream(
+    <NonceProvider>
+      <RemixServer context={remixContext} url={request.url} />
+    </NonceProvider>,
+    {
+      nonce,
+      signal: request.signal,
+      onError(error) {
+        // eslint-disable-next-line no-console
+        console.error(error);
+        responseStatusCode = 500;
+      },
+    },
+  );
 
   if (isbot(request.headers.get('user-agent'))) {
     await body.allReady;
