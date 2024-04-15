@@ -1,5 +1,5 @@
 ## Active on Site tracking
-With Hydrogen 2, you will want to import script with import {Script} from ‘@shopify/hydrogen’; in root.jsx and add our standard onsite snippet within a Script element.
+With Hydrogen 2, you will want to import script with import {Script} from ‘@shopify/hydrogen’; in root.jsx and add our standard onsite snippet within a Script element.  Replace the placeholder value for the company_id in the example below with your Klaviyo Public ID found under https://www.klaviyo.com/settings/account/api-keys:
 ```
 export default function App() {
   const nonce = useNonce();
@@ -19,7 +19,7 @@ export default function App() {
           <Outlet />
         </Layout>
         <Script async type="text/javascript"
-  src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=Ns5p3C" />
+  src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=YourPublicKey" />
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
       </body>
@@ -152,3 +152,5 @@ function ProductForm({product, selectedVariant, variants}) {
 
 With our onsite, forms should appear on local dev environments without any issues however Content Security Policies can impact the functionality of our scripts both on local and prod environments.  We suggest
 testing through dev/preview builds sent up to Shopify via oxygen or custom deployments.  You will need to configure your CSP to your preference to allow our JS to function.
+
+Example code can be referenced in the repository and the dev build can be viewed here. [viewed here.](https://01hvh69zp2h4zha6ae7a16rt0q-3ad64e75e88dc3df299c.myshopify.dev/)
