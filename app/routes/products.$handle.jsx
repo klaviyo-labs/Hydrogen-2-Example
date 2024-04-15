@@ -9,6 +9,8 @@ import {
   CartForm,
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/lib/variants';
+import {trackViewedProduct, trackAddedToCart} from '~/components/Onsite';
+import { useEffect } from "react";
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -105,6 +107,16 @@ export default function Product() {
   /** @type {LoaderReturnData} */
   const {product, variants} = useLoaderData();
   const {selectedVariant} = product;
+
+
+  // Execute VP on page load
+
+  useEffect(() => {
+    trackViewedProduct(product);
+  },[]);
+
+
+
   return (
     <div className="product">
       <ProductImage image={selectedVariant?.image} />
@@ -219,6 +231,12 @@ function ProductPrice({selectedVariant}) {
  * }}
  */
 function ProductForm({product, selectedVariant, variants}) {
+
+  // define atc
+  const handleAtc = function () {
+    trackAddedToCart(product)
+  }
+
   return (
     <div className="product-form">
       <VariantSelector
@@ -232,6 +250,8 @@ function ProductForm({product, selectedVariant, variants}) {
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
+          // Add our newly created click handler
+          handleAtc();
           window.location.href = window.location.href + '#cart-aside';
         }}
         lines={
