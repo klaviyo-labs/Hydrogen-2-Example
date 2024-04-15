@@ -1,6 +1,5 @@
 export function trackViewedProduct(product) {
     let klaviyo = window.klaviyo || [];
-    console.log(product.selectedVariant)
     let item = {
         Name: product.title,
         ProductID: product.id.substring(product.id.lastIndexOf('/') + 1),
@@ -30,5 +29,5 @@ let item = {
         Brand: product.vendor,
         Price: product.selectedVariant.price.amount
       }
-      klaviyo.push(['track', 'hydrogen ATC', item])
+      klaviyo.push(['track', 'Hydrogen Added To Cart', item])
 }
