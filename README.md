@@ -45,7 +45,7 @@ export function trackViewedProduct(product) {
         Metadata: {
           Brand: product.vendor,
           Price: product.selectedVariant.unitPrice,
-          CompareAtPrice: payload.selectedVariant.compareAtPriceV2.amount,
+          CompareAtPrice: product.selectedVariant.compareAtPrice,
         }
 };
 klaviyo.push(['track', 'Hydrogen Viewed Product', item]);
