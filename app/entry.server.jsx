@@ -17,17 +17,29 @@ export default async function handleRequest(
 ) {
   const {nonce, header, NonceProvider} = createContentSecurityPolicy({
     styleSrc: [
-      '*',
+      'https://klaviyo.com',
+      'https://*.klaviyo.com',
+      'https://fonts.googleapis.com'
     ],
     scriptSrc: [
-      "*"
+      'https://klaviyo.com',
+      'https://*.klaviyo.com',
+      'https://cdn.shopify.com'
     ],
     connectSrc: [
-      "*"
+      'https://klaviyo.com',
+      'https://*.klaviyo.com'
     ],
     fontSrc: [
-      "*"
-    ]
+      'https://klaviyo.com',
+      'https://*.klaviyo.com',
+      'https://fonts.googleapis.com',
+      'https://fonts.gstatic.com/'
+    ],
+    imgSrc: [
+      '*',
+      'data:'
+    ],
   });
 
   const body = await renderToReadableStream(
