@@ -153,4 +153,4 @@ function ProductForm({product, selectedVariant, variants}) {
 With our onsite, forms should appear on local dev environments without any issues however Content Security Policies can impact the functionality of our scripts both on local and prod environments.  We suggest
 testing through dev/preview builds sent up to Shopify via oxygen or custom deployments.  You will need to configure your CSP to your preference to allow our JS to function.
 
-Example code can be referenced in the repository and the dev build can be [viewed here.](https://01hvh69zp2h4zha6ae7a16rt0q-3ad64e75e88dc3df299c.myshopify.dev/)
+Example code can be referenced in the repository and the dev build can be [viewed here.](https://hydrogen2example-3ad64e75e88dc3df299c.o2.myshopify.dev/)
