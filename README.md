@@ -30,7 +30,7 @@ export default function App() {
 
 ## Viewed Product and Added to Cart tracking
 
-To implement viewed product and added to cart tracking, we recommend first creating a component for our onsite tracking.  In our example, we've created an Onsite component in app/componenets/Onsite.jsx and add our standard viewed product and atc tracking requests:
+To implement viewed product and added to cart tracking, we recommend first creating a component for our onsite tracking.  In our example, we've created an Onsite component in app/components/Onsite.jsx and add our standard viewed product and atc tracking requests:
 
 ```
 export function trackViewedProduct(product) {
