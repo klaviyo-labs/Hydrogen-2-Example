@@ -150,6 +150,8 @@ function ProductForm({product, selectedVariant, variants}) {
 
 ##### Additional Notes
 
+Forms are supported for Hydrogen and other single paged applications, however functionality is limited.  Device display, geolocation and most visitor behavior that can be evaluated on initial page load should work as expected.  Behaviors like show/don't show on specific URL's are not supported as we run these evaluations when the script is executed (on the first page load); toggling between pages/views will not be factored into that logic for SPA's.  
+
 With our onsite, forms should appear on local dev environments without any issues however Content Security Policies can impact the functionality of our scripts both on local and prod environments.  We suggest
 testing through dev/preview builds sent up to Shopify via oxygen or custom deployments.  You will need to configure your CSP to your preference to allow our JS to function.
 
